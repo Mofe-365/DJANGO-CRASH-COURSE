@@ -10,9 +10,18 @@ from .views import (
 app_name = 'todos'
 
 urlpatterns = [
-    path('', todo_list, name="home"),
-    path('create/', todo_create),
-    path('<id>/', todo_detail),
-    path('<id>/update', todo_update),
-    path('<id>/delete', todo_delete)
+    # path('', todo_list, name="home"), function url
+    path('', todo_list.as_view(), name="home"), #class url
+
+    # path('create/', todo_create), #function url
+    path('create/', todo_create.as_view()),
+
+    # path('<id>/', todo_detail), function url
+    path('<str:pk>/', todo_detail.as_view()), #class url
+
+
+    # path('<id>/update', todo_update),
+
+    path('<id>/delete', todo_delete), 
+    path('<str:pk>/update', todo_update.as_view(), name="update"), #class url
 ]

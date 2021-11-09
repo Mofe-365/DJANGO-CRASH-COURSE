@@ -15,8 +15,12 @@
 
     The todo name is: {{ todo.Name }} <br>
     The due date is: {{ todo.Due_Date }}
-
+<!-- 
     <p><a href="/{{ todo.id }} /update">Update Todo</a></p>
-    <p><a href="/{{ todo.id }} /delete">Delete Todo</a></p>
+    <p><a href="/{{ todo.id }} /delete">Delete Todo</a></p> -->
+
+    <p> <a href="{% url 'todos:update' todo.pk %}"> update</a></p>
+
+
 </body>
 </html>
